@@ -1,44 +1,67 @@
+from typing import Callable
+import numpy as np
+from scipy.optimize import curve_fit, LinearConstraint, minimize
+
+
 class BeatBoxModel:
-    def __init__(self, f, d, vd, cl, ta_mu, ta_sigma, noise_sigma, noise_a, noise_l):
-        self.f = f
-        self.d = d
-        self.vd = vd
-        self.cl = cl
-        self.ta = np.random.lognormal(ta_mu, ta_sigma)
-        self.ra = self.d/self.ta
-        self.ke = self.cl/self.vd
+    D: float
+    F: float
+    V_d: float
+    k_a: float
+    k_el: float
+    tau: float
 
-        self.noise_sigma = noise_sigma
-        self.noise_a = noise_a
-        self.noise_l = noise_l
+    @staticmethod
+    def _base_model(
+        t: np.ndarray,
+        D: float,
+        F: float,
+        V_d: float,
+        k_a: float,
+        k_el: float,
+        tau: float,
+        der: bool = False
+    ) -> np.ndarray:
+        t_a = t[t <= tau]
+        t_el = t[t > tau]
 
-    def _sample_before_ta(self, t=np.linspace(0, 100, 1000)):
-        t_before = t[t <= self.ta]
-        c = self.f * self.ra / self.cl * (1 - np.exp(- self.ke * t_before))
-        return c
+        def absorption_model(t: np.ndarray | float) -> np.ndarray | float:
+            return (
+                F * D * k_a / V_d / (k_a - k_el) *
+                (np.exp(-k_el * t) - np.exp(-k_a * t))
+            )
 
-    def _sample_after_ta(self, t=np.linspace(0, 100, 1000)):
-        t_after = t[t > self.ta]
-        c = self.f*self.ra/self.cl * \
-            (1-np.exp(-self.ke*self.ta))*np.exp(-self.ke * (t_after-self.ta))
-        return c
+        C_a = absorption_model(t_a)
+
+        def elimination_model(t: np.ndarray | float) -> np.ndarray | float:
+            return absorption_model(tau) * np.exp(-k_el * (t - tau))
+
+        C_el = elimination_model(t_el)
+
+        return np.concatenate([C_a, C_el])
+
+    def __init__(self) -> None:
+        self.initilized = False
+
+    def fit(self, t: np.ndarray, x: np.ndarray) -> None:
+        self.initilized = True
+        self.tau = t[np.argmax(x)]
+
+        x0 = [1.3, 0.5, 1, 1, 2]
+
+        cons = LinearConstraint(
+            [[0, 1, 0, 0, 0], [0, 0, 0, 1, -1]], [0.001, -np.inf], [1, 0.001])
+
+        res = minimize(lambda params: np.mean(np.abs(
+            BeatBoxModel._base_model(
+                t, *params, tau=self.tau) - x
+        )),
+            constraints=[cons],
+            x0=x0,
+            method='BFGS'
+            )
+
+        self.D, self.F, self.V_d, self.k_a, self.k_el = res.x
 
     def sample(self, t=np.linspace(0, 100, 1000)):
-        c_before = self._sample_before_ta(t)
-        c_after = self._sample_after_ta(t)
-        return np.concatenate((c_before, c_after))
-
-    def noise(self, t):
-        N = len(t)
-
-        def sample_wiener(t):
-            return sdeint.itoint(lambda x, t: 0, lambda x, t: 1, 0, t)
-
-        W = sample_wiener(t).reshape((-1))
-        J = np.random.poisson(self.noise_l, size=N).cumsum()
-        X = self.noise_sigma * W + self.noise_a * t
-        X_t = X + J
-        return X_t
-
-    def sample_with_noise(self, t=np.linspace(0, 100, 1000)):
-        return self.sample(t) + self.noise(t)
+        return BeatBoxModel._base_model(t, D=self.D, F=self.F, V_d=self.V_d, k_a=self.k_a, k_el=self.k_el, tau=self.tau)
