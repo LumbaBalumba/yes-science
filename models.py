@@ -3,7 +3,7 @@ import numpy as np
 from scipy.optimize import curve_fit, LinearConstraint, minimize
 
 
-class BeatBoxModel:
+class PBFTPKModel:
     D: float
     F: float
     V_d: float
@@ -53,15 +53,15 @@ class BeatBoxModel:
             [[0, 1, 0, 0, 0], [0, 0, 0, 1, -1]], [0.001, -np.inf], [1, 0.001])
 
         res = minimize(lambda params: np.mean(np.abs(
-            BeatBoxModel._base_model(
+            PBFTPKModel._base_model(
                 t, *params, tau=self.tau) - x
         )),
             constraints=[cons],
             x0=x0,
-            method='BFGS'
+            method='trust-constr'
             )
 
         self.D, self.F, self.V_d, self.k_a, self.k_el = res.x
 
     def sample(self, t=np.linspace(0, 100, 1000)):
-        return BeatBoxModel._base_model(t, D=self.D, F=self.F, V_d=self.V_d, k_a=self.k_a, k_el=self.k_el, tau=self.tau)
+        return PBFTPKModel._base_model(t, D=self.D, F=self.F, V_d=self.V_d, k_a=self.k_a, k_el=self.k_el, tau=self.tau)
