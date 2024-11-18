@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.10.4)  12 NOV 2024 17:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.10.4)  12 NOV 2024 21:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -534,90 +534,96 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 19.
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Underfull \hbox (badness 10000) in paragraph at lines 44--45
+Underfull \hbox (badness 10000) in paragraph at lines 25--26
 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 44--45
-
- []
-
-<./images/mean.png, id=1, 424.9476pt x 313.6518pt>
-File: ./images/mean.png Graphic file (type png)
-<use ./images/mean.png>
-Package pdftex.def Info: ./images/mean.png  used on input line 49.
-(pdftex.def)             Requested size: 241.49895pt x 178.25214pt.
-
-Overfull \hbox (15.0pt too wide) in paragraph at lines 49--50
-[][] 
  []
 
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf-dist/fonts
 /enc/dvips/cm-super/cm-super-t2a.enc}]
-<./images/std.png, id=20, 422.7795pt x 312.2064pt>
-File: ./images/std.png Graphic file (type png)
-<use ./images/std.png>
-Package pdftex.def Info: ./images/std.png  used on input line 53.
-(pdftex.def)             Requested size: 241.49895pt x 178.3406pt.
+Underfull \hbox (badness 10000) in paragraph at lines 63--64
 
-Overfull \hbox (15.0pt too wide) in paragraph at lines 53--54
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 63--64
+
+ []
+
+<./images/mean.png, id=20, 424.9476pt x 313.6518pt>
+File: ./images/mean.png Graphic file (type png)
+<use ./images/mean.png>
+Package pdftex.def Info: ./images/mean.png  used on input line 68.
+(pdftex.def)             Requested size: 241.49895pt x 178.25214pt.
+
+Overfull \hbox (15.0pt too wide) in paragraph at lines 68--69
 [][] 
  []
 
-<./images/example4.png, id=21, 416.2752pt x 312.2064pt>
+<./images/std.png, id=22, 422.7795pt x 312.2064pt>
+File: ./images/std.png Graphic file (type png)
+<use ./images/std.png>
+Package pdftex.def Info: ./images/std.png  used on input line 72.
+(pdftex.def)             Requested size: 241.49895pt x 178.3406pt.
+
+Overfull \hbox (15.0pt too wide) in paragraph at lines 72--73
+[][] 
+ []
+
+[2 <./images/mean.png> <./images/std.png>]
+<./images/example4.png, id=28, 416.2752pt x 312.2064pt>
 File: ./images/example4.png Graphic file (type png)
 <use ./images/example4.png>
-Package pdftex.def Info: ./images/example4.png  used on input line 61.
+Package pdftex.def Info: ./images/example4.png  used on input line 80.
 (pdftex.def)             Requested size: 241.49895pt x 181.12747pt.
-<./images/example5.png, id=22, 416.2752pt x 312.2064pt>
+<./images/example5.png, id=29, 416.2752pt x 312.2064pt>
 File: ./images/example5.png Graphic file (type png)
 <use ./images/example5.png>
-Package pdftex.def Info: ./images/example5.png  used on input line 62.
+Package pdftex.def Info: ./images/example5.png  used on input line 81.
 (pdftex.def)             Requested size: 241.49895pt x 181.12747pt.
-<./images/example6.png, id=23, 416.2752pt x 312.2064pt>
+<./images/example6.png, id=30, 416.2752pt x 312.2064pt>
 File: ./images/example6.png Graphic file (type png)
 <use ./images/example6.png>
-Package pdftex.def Info: ./images/example6.png  used on input line 63.
+Package pdftex.def Info: ./images/example6.png  used on input line 82.
 (pdftex.def)             Requested size: 241.49895pt x 181.12747pt.
 
-Overfull \hbox (15.0pt too wide) in paragraph at lines 61--64
+Overfull \hbox (15.0pt too wide) in paragraph at lines 80--83
 [][]
  []
 
-[2 <./images/mean.png> <./images/std.png>] [3 <./images/example4.png> <./images
-/example5.png> <./images/example6.png>] [4] (./main.aux)
+[3 <./images/example4.png> <./images/example5.png>] [4 <./images/example6.png>]
+[5] (./main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 7236 strings out of 475550
- 117985 string characters out of 5785873
- 1932187 words of memory out of 5000000
- 29267 multiletter control sequences out of 15000+600000
- 570077 words of font info for 69 fonts, out of 8000000 for 9000
+ 7242 strings out of 475550
+ 118081 string characters out of 5785873
+ 1934187 words of memory out of 5000000
+ 29271 multiletter control sequences out of 15000+600000
+ 571688 words of font info for 71 fonts, out of 8000000 for 9000
  430 hyphenation exceptions out of 8191
- 69i,8n,79p,860b,224s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 69i,10n,79p,883b,224s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-r5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/sha
-re/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/type1/pub
-lic/cm-super/sfbx1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sf
-bx1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></us
-r/share/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf-d
-ist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf-dist/fonts/type1
-/public/cm-super/sfrm1728.pfb>
-Output written on main.pdf (4 pages, 250743 bytes).
+ts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+r10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/sh
+are/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sf
+bx1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></us
+r/share/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf-d
+ist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf-dist/fonts/type1
+/public/cm-super/sfrm1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-supe
+r/sfrm1728.pfb>
+Output written on main.pdf (5 pages, 268667 bytes).
 PDF statistics:
- 99 PDF objects out of 1000 (max. 8388607)
- 54 compressed objects within 1 object stream
+ 107 PDF objects out of 1000 (max. 8388607)
+ 59 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  26 words of extra memory for PDF output out of 10000 (max. 10000000)
 

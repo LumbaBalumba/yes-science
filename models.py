@@ -1,15 +1,17 @@
-from typing import Callable
 import numpy as np
-from scipy.optimize import curve_fit, LinearConstraint, minimize
+from scipy.optimize import LinearConstraint, minimize
+from scipy.ndimage import gaussian_filter1d
+from scipy.signal import find_peaks
 
 
-class PBFTPKModel:
+class ExpModel:
     D: float
     F: float
     V_d: float
     k_a: float
     k_el: float
-    tau: float
+    tau: list
+    modes: list
 
     @staticmethod
     def _base_model(
@@ -19,49 +21,95 @@ class PBFTPKModel:
         V_d: float,
         k_a: float,
         k_el: float,
-        tau: float,
-        der: bool = False
+        tau_arr: list[float],
+        modes: list[str],
     ) -> np.ndarray:
-        t_a = t[t <= tau]
-        t_el = t[t > tau]
+        tau_arr += [np.inf]
+        C_cur = 0.0
+        tau_cur = 0.0
+
+        X = np.zeros_like(t)
 
         def absorption_model(t: np.ndarray | float) -> np.ndarray | float:
-            return (
-                F * D * k_a / V_d / (k_a - k_el) *
-                (np.exp(-k_el * t) - np.exp(-k_a * t))
+            return C_cur + F * D * k_a / V_d / (k_a - k_el) * (
+                np.exp(-k_el * t) - np.exp(-k_a * t)
             )
-
-        C_a = absorption_model(t_a)
 
         def elimination_model(t: np.ndarray | float) -> np.ndarray | float:
-            return absorption_model(tau) * np.exp(-k_el * (t - tau))
+            return C_cur * np.exp(-k_el * (t - tau_cur))
 
-        C_el = elimination_model(t_el)
+        for tau, mode in zip(tau_arr, modes):
+            idx = (tau_cur < t) & (t <= tau)
+            match mode:
+                case "up":
+                    X[idx] = absorption_model(t[idx])
+                case "down":
+                    X[idx] = elimination_model(t[idx])
+            tau_cur = tau
+            C_cur = X[idx][-1] if len(X[idx]) > 0 else C_cur
+        return X
 
-        return np.concatenate([C_a, C_el])
-
-    def __init__(self) -> None:
+    def __init__(self, tau: list, modes: list) -> None:
         self.initilized = False
+        self.tau = tau
+        self.modes = modes
 
-    def fit(self, t: np.ndarray, x: np.ndarray) -> None:
+    def fit(self, t: np.ndarray, X: np.ndarray) -> None:
         self.initilized = True
-        self.tau = t[np.argmax(x)]
 
-        x0 = [1.3, 0.5, 1, 1, 2]
+        params_initial = [1.3, 0.5, 1, 1, 2]
 
         cons = LinearConstraint(
-            [[0, 1, 0, 0, 0], [0, 0, 0, 1, -1]], [0.001, -np.inf], [1, 0.001])
+            [[0, 1, 0, 0, 0], [0, 0, 0, 1, -1]], [0.001, -np.inf], [1, 0.001]
+        )
 
-        res = minimize(lambda params: np.mean(np.abs(
-            PBFTPKModel._base_model(
-                t, *params, tau=self.tau) - x
-        )),
-            constraints=[cons],
-            x0=x0,
-            method='trust-constr'
-            )
+        def target_function(params):
+            r = (
+                ExpModel._base_model(t, *params, tau_arr=self.tau, modes=self.modes) - X
+            ) ** 2
+            return np.mean(r)
+
+        res = minimize(
+            target_function, constraints=[cons], x0=params_initial, method="SLSQP"
+        )
 
         self.D, self.F, self.V_d, self.k_a, self.k_el = res.x
 
     def sample(self, t=np.linspace(0, 100, 1000)):
-        return PBFTPKModel._base_model(t, D=self.D, F=self.F, V_d=self.V_d, k_a=self.k_a, k_el=self.k_el, tau=self.tau)
+        return ExpModel._base_model(
+            t,
+            D=self.D,
+            F=self.F,
+            V_d=self.V_d,
+            k_a=self.k_a,
+            k_el=self.k_el,
+            tau_arr=self.tau,
+            modes=self.modes,
+        )
+
+
+class TauModel:
+    tau: list
+
+    def __init__(self) -> None:
+        pass
+
+    def fit(self, t: np.ndarray, X: np.ndarray):
+        X_smooth = gaussian_filter1d(X, sigma=2)
+
+        peaks, _ = find_peaks(X_smooth)
+        valleys, _ = find_peaks(-X_smooth)
+        print(peaks, valleys)
+
+        self.tau = list(t[sorted(peaks + valleys)])
+
+
+class PBFTPK:
+    exp_model: ExpModel
+    tau_model: TauModel
+
+    def __init__(self) -> None:
+        pass
+
+    def fit(self, t: np.ndarray, X: np.ndarray) -> None:
+        self.tau_model.fit(t, X)
