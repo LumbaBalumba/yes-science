@@ -69,10 +69,10 @@ class PBFTPK:
 
         params_initial = [1.3, 0.5, 1, 1, 2]
 
-        cons = LinearConstraint([[0, 0, 0, 1, -1]], -np.inf, 0.001)
+        cons = LinearConstraint([[0, 0, 0, 1, -1]], ub=-1e-2)
 
         bounds = Bounds(
-            lb=[1e-5, 1e-5, 1e-5, 1e-5, 1e-5], ub=[np.inf, 1.0, np.inf, np.inf, np.inf]
+            lb=[1e-2, 1e-2, 1e-2, 1e-2, 1e-2], ub=[1e3, 1.0, 10000, 300, 300]
         )
 
         def target_function(params):
@@ -84,7 +84,7 @@ class PBFTPK:
 
         res = minimize(
             target_function,
-            constraints=[cons],
+            constraints=cons,
             bounds=bounds,
             x0=params_initial,
             method="SLSQP",
@@ -137,7 +137,7 @@ class EnsembledPBFTPK:
         return X
 
 
-class FlexibleEnsembledPBFTPK:
+class AdaptiveEnsembledPBFTPK:
     n_models: int
     model: EnsembledPBFTPK | None
 
@@ -148,7 +148,8 @@ class FlexibleEnsembledPBFTPK:
 
     def fit(self, t: np.ndarray, X: np.ndarray) -> None:
         assert t.shape == X.shape
-        bounds = Bounds(lb=[0] * self.n_models, ub=[10] * self.n_models)
+
+        bounds = Bounds(lb=[0.2] * self.n_models, ub=[10.0] * self.n_models)
 
         def target_function(alpha):
             model = EnsembledPBFTPK(self.n_models, alpha)
@@ -157,9 +158,7 @@ class FlexibleEnsembledPBFTPK:
 
         alpha_initial = np.ones(self.n_models)
 
-        res = minimize(
-            target_function, bounds=[bounds], x0=alpha_initial, method="SLSQP"
-        )
+        res = minimize(target_function, bounds=bounds, x0=alpha_initial, method="SLSQP")
 
         self.model = EnsembledPBFTPK(self.n_models, res.x)
 
