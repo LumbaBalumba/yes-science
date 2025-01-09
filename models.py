@@ -69,8 +69,10 @@ class PBFTPK:
 
         params_initial = [1.3, 0.5, 1, 1, 2]
 
-        cons = LinearConstraint(
-            [[0, 1, 0, 0, 0], [0, 0, 0, 1, -1]], [0.001, -np.inf], [1, 0.001]
+        cons = LinearConstraint([[0, 0, 0, 1, -1]], -np.inf, 0.001)
+
+        bounds = Bounds(
+            lb=[1e-5, 1e-5, 1e-5, 1e-5, 1e-5], ub=[np.inf, 1.0, np.inf, np.inf, np.inf]
         )
 
         def target_function(params):
@@ -81,7 +83,11 @@ class PBFTPK:
             return np.mean(r)
 
         res = minimize(
-            target_function, constraints=[cons], x0=params_initial, method="SLSQP"
+            target_function,
+            constraints=[cons],
+            bounds=bounds,
+            x0=params_initial,
+            method="SLSQP",
         )
 
         self.D, self.F, self.V_d, self.k_a, self.k_el = res.x
