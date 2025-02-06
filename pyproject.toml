@@ -17,6 +17,7 @@ pywavelets = "^1.7.0"
 ipykernel = "^6.29.5"
 sympy = "^1.13.3"
 optuna = "^4.1.0"
+pharmapynetics = {git = "https://github.com/LumbaBalumba/pharmapynetics.git"}
 
 
 [tool.poetry.group.dev.dependencies]

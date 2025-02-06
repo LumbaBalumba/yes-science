@@ -1,0 +1,14 @@
+\babel@toc {russian}{}\relax 
+\contentsline {section}{\numberline {1}Введение}{2}{section.1}%
+\contentsline {section}{\numberline {2}Постановка задачи}{4}{section.2}%
+\contentsline {section}{\numberline {3}Описание моделей}{5}{section.3}%
+\contentsline {subsection}{\numberline {3.1}PBFTPK}{5}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Кусочная модификация PBFTPK}{5}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}EPBFTPK}{6}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Функции потерь}{6}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Описание итогового алгоритма}{7}{subsection.3.5}%
+\contentsline {section}{\numberline {4}Описание данных}{8}{section.4}%
+\contentsline {section}{\numberline {5}Полученные результаты}{9}{section.5}%
+\contentsline {section}{\numberline {6}Заключение}{10}{section.6}%
+\contentsline {section}{\numberline {7}Список литературы}{11}{section.7}%
+\contentsline {section}{\numberline {8}Приложение}{12}{section.8}%
