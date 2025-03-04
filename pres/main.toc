@@ -1,0 +1,6 @@
+\babel@toc {russian}{}\relax 
+\beamer@sectionintoc {1}{Введение}{3}{0}{1}
+\beamer@sectionintoc {2}{Постановка задачи}{4}{0}{2}
+\beamer@sectionintoc {3}{Описание данных}{5}{0}{3}
+\beamer@sectionintoc {4}{Описание моделей}{6}{0}{4}
+\beamer@sectionintoc {5}{Полученные результаты}{8}{0}{5}

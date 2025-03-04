@@ -1,114 +1,165 @@
-\documentclass{article}
+\documentclass[12pt]{beamer}
+\usepackage[utf8]{inputenc}
 \usepackage[T2A]{fontenc}
-\usepackage[english,russian]{babel}
-\usepackage[utf8]{inputenc}
-% \usetheme{Warsaw}
-\usepackage{graphics}
-\usepackage[demo]{graphicx}
-\graphicspath{ {./images/} }
-\usepackage{subfig}
-\usepackage[utf8]{inputenc}
-\usepackage{amsmath, amssymb}
-\usepackage[export]{adjustbox}
-\usepackage{caption}
-\usepackage{subcaption}
-\captionsetup{compatibility=false}
+\usepackage[russian]{babel}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{listings}
 
-\title{Отчёт о проделанной работе}
+\usetheme{Madrid}
+\setbeamertemplate{caption}[numbered]
+\graphicspath{{img/}}
+
+\bibliographystyle{plain}
+
+\title{Анализ и применение многофакторных моделей динамики лекарственных веществ в медицинских исследованиях}
 \author{Лазар В. И.}
+\date{\today}
 
 \begin{document}
-\maketitle
 
-\section{Проведённые исследования}
+\begin{frame}
+	\titlepage
+\end{frame}
 
-\subsection{Модель}
+\begin{frame}{Содержание}
+	\tableofcontents
+\end{frame}
 
-Программно реализована однопиковая модель \textbf{PBFTPK} с возможностью обучения на данных и генерации сэмплов с параметрами, подобранными при обучении. \newline
+\section{Введение}
+\begin{frame}{Введение}
+	\textbf{Фармакокинетика (ФК)} – это наука, описывающая всасывание, распределение, метаболизм и выведение (ADME) лекарственных средств.
 
-Сама модель устроена следующим образом:
+	\textbf{Ключевые факторы:}
+	\begin{itemize}
+		\item Физиологические и биохимические параметры
+		\item Генетические особенности
+		\item Внешние факторы (сопутствующее лечение, образ жизни)
+	\end{itemize}
 
-$$
-	C_{\tau}(t) = \begin{cases}
-		\frac{F D k_a}{V_d (k_a - k_{el})} (e^{-k_{el} t} - e^{-k_a t}), t \le \tau \\
-		C_{\tau}(\tau)e^{-k_el (t - \tau)}, t > \tau
-	\end{cases}
-$$
-\begin{align*}
-	 & C_{\tau}(t) - \text{концентрация декарства в крови}                            \\
-	 & D > 0 - \text{объём дозы лекарства}                                            \\
-	 & F > 0 - \text{биодоступная доля дозы}                                          \\
-	 & V_d > 0 - \text{объём распределения лекарства}                                 \\
-	 & k_a - \text{параметр всасывания вещества}                                      \\
-	 & k_el - \text{параметр выведения вещества}                                      \\
-	 & \tau > 0 - \text{время абсорбции}, C_{\tau}(\tau) = \sup_{t \ge 0} C_{\tau}(t)
-\end{align*}
+	\textbf{Проблемы анализа данных:}
+	\begin{enumerate}
+		\item Малые выборки
+		\item Неоднородность данных во времени
+		\item Высокий уровень шума в данных
+		\item Наличие выбросов
+	\end{enumerate}
+\end{frame}
 
-Реализована многопиковая модель:
+\section{Постановка задачи}
+\begin{frame}{Постановка задачи}
+	\textbf{Цель работы:} разработка модифицированной \textbf{PBFTPK}-модели для учета сложных траекторий концентрации лекарства в организме.
 
-$$
-	C_n(t) = \sum_{i=1}^{n} C_{\tau_i}
-$$
+	\textbf{Требования:}
+	\begin{itemize}
+		\item Учет неоднократных изменений концентрации
+		\item Устойчивость к шуму и выбросам
+		\item Физическая интерпретируемость
+		\item Работа с малыми выборками
+	\end{itemize}
+\end{frame}
+
+\section{Описание данных}
+\begin{frame}{Описание данных}
+	\textbf{Исходные данные:} синтетические временные ряды, имитирующие реальные фармакокинетические исследования.
+
+	\textbf{Особенности:}
+	\begin{itemize}
+		\item Неоднородность временных рядов
+		\item Отсутствие нормализации данных
+		\item Сложные формы кривых концентрации
+	\end{itemize}
+
+	\begin{center}
+		\includegraphics[width=0.45\linewidth]{sample.png}
+	\end{center}
+\end{frame}
+
+\section{Описание моделей}
+\begin{frame}{PBFTPK-модель}
+	\textbf{Обозначения:}
+	\begin{itemize}
+		\item $C(t)$ – концентрация лекарства
+		\item $F$ – биодоступность
+		\item $D$ – введённая доза
+		\item $V_d$ – объём распределения
+		\item $k_a, k_{el}$ – коэффициенты всасывания и элиминации
+	\end{itemize}
+
+	\textbf{Формула модели:}
+	\[ C(t) = \frac{FD k_a}{V_d (k_a - k_{el})} (e^{-k_{el}t} - e^{-k_a t}) \]
+\end{frame}
+
+\begin{frame}{Функции потерь}
+	\textbf{Используемая функция потерь:}
+	\[ L_{\lambda} = \frac{1}{N} \sum_{i=1}^{N} l_{\lambda}(C, \hat{C}, t_i) \]
+
+	\textbf{Где:}
+	\[ l_{\lambda}(C, \hat{C}, t) = (C(t) - \hat{C}(t)) ^ 2 \cdot \begin{cases}
+			1, t \leq \tau \\
+			\lambda, t > \tau
+		\end{cases} \]
+
+	\textbf{Регулировка ошибки:}
+	\begin{itemize}
+		\item $\lambda < 1$ – точность оценки на этапе абсорбции важнее
+		\item $\lambda > 1$ – точность оценки на этапе выведения важнее
+		\item $\lambda = 1$ – стандартная среднеквадратичная ошибка (MSE)
+	\end{itemize}
+\end{frame}
+
+\section{Полученные результаты}
+\begin{frame}{Сравнение моделей}
+	\begin{minipage}{0.45\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{results/basic_1.png}
+		% \caption{PBFTPK (Пример 1)}
+		\includegraphics[width=\linewidth]{results/1.jpg}
+		% \caption{EPBFTPK (Пример 1)}
+	\end{minipage}
+	\begin{minipage}{0.45\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{results/basic_2.png}
+		% \caption{PBFTPK (Пример 2)}
+		\includegraphics[width=\linewidth]{results/2.jpg}
+		% \caption{EPBFTPK (Пример 2)}
+	\end{minipage}
+\end{frame}
+
+\begin{frame}{Дополнительные примеры}
+	\begin{minipage}{0.45\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{results/basic_3.png}
+		% \caption{PBFTPK (Пример 3)}
+		\includegraphics[width=\linewidth]{results/3.jpg}
+		% \caption{EPBFTPK (Пример 3)}
+	\end{minipage}
+	\begin{minipage}{0.45\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{results/basic_4.png}
+		% \caption{PBFTPK (Пример 4)}
+		\includegraphics[width=\linewidth]{results/4.jpg}
+		% \caption{EPBFTPK (Пример 4)}
+	\end{minipage}
+\end{frame}
+
+\begin{frame}{Выводы}
+	\textbf{Основные результаты:}
+	\begin{itemize}
+		\item Улучшенная EPBFTPK-модель более точно описывает траектории концентрации
+		\item Учет шума, выбросов и сложных траекторий
+		\item Выбор параметров модели позволяет адаптироваться к различным сценариям
+	\end{itemize}
+\end{frame}
 
 
-\subsection{Метрика}
-
-В качестве метрики для оценки моделей большинство уже реализованных алгоритмов используют метрику \[
-	\frac{1}{n}\sum_{i=1}^{n} (f(t_i) - X(t_i))^2
-\] Было решено использовать несколько иную метрику: \[
-	L(f, \alpha) = \frac{1}{n}\sum_{i=1}^{i_0-1} |f(t_i) - X(t_i)| +
-	\frac{1}{n}\sum_{i=i_0}^{n} \alpha|f(t_i) - X(t_i)|
-\], где \[
-	t_{i_0} \approx \tau
-\] в силу того, что она чувствительнее к ошибке модели после достижения времени абсорбции. Соответственно, для случая многопиковой модели метрика выглядит следующим образом: \[
-	L_{mul}(f)  = \sum_{i=0}^{n} L(f, \alpha_i)
-\]
-
-Также для улучшения качества модели было принято решение использовать MinMaxScaler
-
-\subsection{Исследование моментных характеристик остатков}
-
-Здесь и далее будем действовать в предположении о том, что величина
-\[
-	X(t) - f(t)
-\], где X(t) - исходный случайный процесс, а f(t) - тректория предсказанная моделью, является процессом Леви
-
-Для получения более точного вида процесса было решено исследовать матожидание и стандартное отклонение проекций процесса остатков \newline\newline
-
-Для тестирования использовалась однопиковая модель с $\alpha=7$ \newline
-
-Получен следующий график поведения для матожидания
-
-\includegraphics[width=0.7\textwidth, left]{mean.png}
-
-И для дисперсии
-
-\includegraphics[width=0.7\textwidth, left]{var.png}
-
-Видно, что модель довольно сильно ошибается до момента абсорбции, что логично следует из выбранных гиперпараметров модели
-
-\subsection{Исследование поведения исходного процесса}
-
-Здесь показаны одни из типовых случаев процессов, на которых модель значительно ошибается ошибается
-
-\includegraphics[width=0.6\textwidth]{example4_1.png} \newline
-\includegraphics[width=0.6\textwidth]{example5_1.png} \newline
-\includegraphics[width=0.6\textwidth]{example6_1.png} \newline
-
-В среднем даваемая моделью оценка выглядит так:
-
-\includegraphics[width=0.6\textwidth]{example1_1.png} \newline
-\includegraphics[width=0.6\textwidth]{example2_1.png} \newline
-\includegraphics[width=0.6\textwidth]{example3_1.png} \newline
-
-\section{Гипотезы и планы}
-
-\subsection{Доработка модели}
-
-Сейчас многопиковая модель показывает себя в среднем хуже однопиковой с параметром регуляризации и нуждается в существенной программной доработке. Возможно, имеет смысл поиск других способов обнаружения пиков процесса
-
-\section{Исследование поведения процесса остатков}
-
-Было получено, что при $\lim_{t \to +\infty} \mathbb{E} r(t) \approx 0$, а также $\mathbb{D} r(t) \approx const$ при $t > \tau$. Это существенно сужает круг возможных семейств процессов. Учитывая, что в данной модели процесс остатков представляется процессом Леви, можно исключить некоторые слагаемые из декомпозиции Леви-Ито: \newline $ X_t = \sigma B_t + at + Y_t + Z_t $
-
+\begin{frame}
+	\bibliography{refs}
+	\hphantom{\cite{chryssafidis}
+		\cite{macheras}
+		\cite{rowland}
+	}
+\end{frame}
 \end{document}
