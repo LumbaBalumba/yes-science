@@ -4,13 +4,14 @@
 \usepackage[russian]{babel}
 \usepackage{amsmath, amssymb, amsfonts}
 \usepackage{geometry}
-\usepackage{graphicx, changepage}
 \usepackage{multirow}
 \usepackage{array}
+\usepackage{graphicx, changepage}
 \usepackage{pdflscape}
 \usepackage{listings}
 \usepackage{xcolor}
 \usepackage{hyperref}
+\usepackage[font=small,labelfont=bf]{caption}
 
 \geometry{a4paper, margin=2.5cm}
 \graphicspath{ {./img/} }
@@ -24,6 +25,8 @@
 \title{Анализ и применение многофакторных моделей динамики лекарственных веществ в медицинских исследованиях}
 
 \graphicspath{{img}}
+
+\bibliographystyle{plain}
 
 \begin{document}
 \maketitle
@@ -238,27 +241,52 @@
 
 \newpage
 
-\includegraphics{results/basic_1.png}\newline
-\includegraphics{results/1.jpg}\newline
+\begin{minipage}{0.48\linewidth}
+	\captionof{figure}{PBFTPK (Пример 1)}
+	\includegraphics[width=2.0\linewidth]{results/basic_1.png}\newline
+	\captionof{figure}{EPBFTPK (Пример 1)}
+	\includegraphics[width=2.0\linewidth]{results/1.jpg}\newline
+\end{minipage}
 
-\includegraphics{results/basic_2.png}\newline
-\includegraphics{results/2.jpg}\newline
+\begin{minipage}{0.48\linewidth}
+	\captionof{figure}{PBFTPK (Пример 2)}
+	\includegraphics[width=2.0\linewidth]{results/basic_2.png}\newline
+	\captionof{figure}{EPBFTPK (Пример 2)}
+	\includegraphics[width=2.0\linewidth]{results/2.jpg}\newline
+\end{minipage}
 
-\includegraphics{results/basic_3.png}\newline
-\includegraphics{results/3.jpg}\newline
 
-\includegraphics{results/basic_4.png}\newline
-\includegraphics{results/4.jpg}\newline
+\begin{minipage}{0.48\linewidth}
+	\captionof{figure}{PBFTPK (Пример 3)}
+	\includegraphics[width=2.0\linewidth]{results/basic_3.png}\newline
+	\captionof{figure}{EPBFTPK (Пример 3)}
+	\includegraphics[width=2.0\linewidth]{results/3.jpg}\newline
+\end{minipage}
 
-\includegraphics{results/basic_5.png}\newline
-\includegraphics{results/5.jpg}\newline
+\begin{minipage}{0.48\linewidth}
+	\captionof{figure}{PBFTPK (Пример 4)}
+	\includegraphics[width=2.0\linewidth]{results/basic_4.png}\newline
+	\captionof{figure}{EPBFTPK (Пример 4)}
+	\includegraphics[width=2.0\linewidth]{results/4.jpg}\newline
+\end{minipage}
 
-\includegraphics{results/basic_6.png}\newline
-\includegraphics{results/6.jpg}\newline
+\begin{minipage}{0.48\linewidth}
+	\captionof{figure}{PBFTPK (Пример 5)}
+	\includegraphics[width=2.0\linewidth]{results/basic_5.png}\newline
+	\captionof{figure}{EPBFTPK (Пример 5)}
+	\includegraphics[width=2.0\linewidth]{results/5.jpg}\newline
+\end{minipage}
 
+\begin{minipage}{0.48\linewidth}
+	\captionof{figure}{PBFTPK (Пример 6)}
+	\includegraphics[width=2.0\linewidth]{results/basic_6.png}\newline
+	\captionof{figure}{EPBFTPK (Пример 6)}
+	\includegraphics[width=2.0\linewidth]{results/6.jpg}\newline
+\end{minipage}
 
 \newpage
 
-\section*{Список литературы}
+
+\bibliography{refs}
 
 \end{document}
