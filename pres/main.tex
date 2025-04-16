@@ -40,7 +40,7 @@
 \end{frame}
 
 \begin{frame}{Исследуемое явление}
-	Исследуется проверка биоэквивалентности двух препаратов на некоторой группе. Каждому члену группы вводится препарат. Затем в течение некотрого времени (обычно несколько суток) проводится измерение количества вещества в крови пациента. В результате получается кривая <<концентрация - время>>, которая и будет исследоваться в дальнейшем.
+	Исследуется проверка биоэквивалентности двух препаратов на некоторой группе. Каждому члену группы вводится препарат. Затем в течение некотрого времени (обычно несколько суток) проводится измерение количества вещества в крови пациента. В результате получается кривая <<концентрация - время>>.
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -70,6 +70,12 @@
 	\end{itemize}
 \end{frame}
 
+
+\begin{frame}{Пример траектории}
+	\center
+	\includegraphics[width=0.8\linewidth]{sample_basic.png}
+\end{frame}
+
 \begin{frame}{Описание данных}
 	\begin{itemize}
 		\item Данные представлены в виде временных рядов концентрации лекарства.
@@ -79,6 +85,26 @@
 	\begin{center}
 		\includegraphics[width=0.55\linewidth]{sample.png}
 	\end{center}
+\end{frame}
+
+\begin{frame}
+	\textbf{EPBFTPK:}
+	\begin{itemize}
+		\item Ансамблирование моделей: построение \(\hat{C}_i(t)\) на основе остатков \(r_i(t) = C(t) - \sum_i \hat{C}_i(t)\).
+		\item Итоговая оценка:
+		      \[
+			      \hat{C}(t) = \sum_i \hat{C}_i(t)
+		      \]
+	\end{itemize}
+	\begin{itemize}
+		\item Позволяет представить траекторию ввиде суммы конечного числа неависимых траекторий, что решает проблему множества пиков.
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+	\includegraphics[width=1.0\linewidth]{ensemble/original.png} \newline
+	\includegraphics[width=1.0\linewidth]{ensemble/residuals.png}
 \end{frame}
 
 \begin{frame}{Кусочная модификация PBFTPK}
@@ -107,19 +133,7 @@
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{EPBFTPK и функция потерь}
-	\textbf{EPBFTPK:}
-	\begin{itemize}
-		\item Ансамблирование моделей: построение \(\hat{C}_i(t)\) на основе остатков \(r(t) = C(t) - \hat{C}(t)\).
-		\item Итоговая оценка:
-		      \[
-			      \hat{C}(t) = \sum_i \hat{C}_i(t)
-		      \]
-	\end{itemize}
-	\begin{itemize}
-		\item Позволяет представить траекторию ввиде суммы конечного числа неависимых траекторий, что решает проблему множества пиков.
-	\end{itemize}
-	\vspace{0.3em}
+\begin{frame}{Функция потерь}
 	\textbf{Функция потерь:} \(\lambda\)-взвешенная MSE
 	\[
 		L_{\lambda} = \frac{1}{N}\sum_{i=1}^{N} \Big(C(t_i)-\hat{C}(t_i)\Big)^2 \cdot
@@ -140,35 +154,43 @@
 \begin{frame}{Итоговый алгоритм}
 	Задача оценки сводится к последовательной минимизации:
 	\[
-		L_{\lambda}(r_i, \hat{C}_i, t) \to \inf_{p \in \Omega}
+		L_{\lambda}(r_i, \hat{C}_i, t) \to \inf_{p \in \Omega}, \;
+		r_1(t) = C(t)
 	\]
-	где
-	\[
-		\Omega = \{ (F, D, V_d, k_a, k_{el}) \mid F \in [0,1],\, D \ge 0,\, V_d \ge 0,\, k_a \ge 0,\, k_{el} \ge 0 \}
-	\]
-	\[
-		r_1 = C
-	\]
-	\begin{itemize}
-		\item Метод можно адаптировать для предсказания траектории.
-	\end{itemize}
+	где $\Omega$ - признаковое пространство модели.
 \end{frame}
 
 \begin{frame}{Результаты исследований}
-	\begin{itemize}
-		\item Сравнение моделей: базовая PBFTPK и ансамблированная EPBFTPK.
-		\item EPBFTPK демонстрирует лучшую точность, особенно при сложных траекториях с задержанным спадом.
-	\end{itemize}
 	\begin{center}
-		\small
-		\textbf{Примеры графиков:}
-		\vspace{0.5em}
-
 		\includegraphics[width=0.45\linewidth]{results/basic_1.png} \quad
 		\includegraphics[width=0.45\linewidth]{results/1.jpg}
 	\end{center}
 \end{frame}
 
+\begin{frame}{Результаты исследований}
+	\begin{center}
+		\includegraphics[width=0.45\linewidth]{results/basic_2.png} \quad
+		\includegraphics[width=0.45\linewidth]{results/2.jpg}
+	\end{center}
+\end{frame}
+\begin{frame}{Результаты исследований}
+	\begin{center}
+		\includegraphics[width=0.45\linewidth]{results/basic_3.png} \quad
+		\includegraphics[width=0.45\linewidth]{results/3.jpg}
+	\end{center}
+\end{frame}
+\begin{frame}{Результаты исследований}
+	\begin{center}
+		\includegraphics[width=0.45\linewidth]{results/basic_4.png} \quad
+		\includegraphics[width=0.45\linewidth]{results/4.jpg}
+	\end{center}
+\end{frame}
+\begin{frame}{Результаты исследований}
+	\begin{center}
+		\includegraphics[width=0.45\linewidth]{results/basic_5.png} \quad
+		\includegraphics[width=0.45\linewidth]{results/5.jpg}
+	\end{center}
+\end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Заключение}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
