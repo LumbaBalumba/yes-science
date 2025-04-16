@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1744813089.01641 "main.tex" "main.pdf" "main" 1744813089.85107 0
+["pdflatex"] 1744813175.96178 "main.tex" "main.pdf" "main" 1744813176.78283 0
   "/home/i3alumba/.texlive/texmf-var/fonts/tfm/lh/lh-t2a/lass0500.tfm" 1731417680.87534 3344 04cc4fceacac9c26311c189d8cf8dfa8 ""
   "/home/i3alumba/.texlive/texmf-var/fonts/tfm/lh/lh-t2a/lass0600.tfm" 1731417679.72535 3336 ffa077eca1169d40eee1410535cc0504 ""
   "/home/i3alumba/.texlive/texmf-var/fonts/tfm/lh/lh-t2a/lass0700.tfm" 1744554112.59952 3336 64102c03b7330d029f637164eea463f9 ""
@@ -243,10 +243,10 @@
   "img/results/basic_5.png" 1741391778.63609 29619 e3226429727fdb70c2866ced85790833 ""
   "img/sample.png" 1741391778.63609 19960 e1759c7adf6c91998910179b2d9259d8 ""
   "img/sample_basic.png" 1744811277.50375 17078 2252b09fae765a0e84952a283ced54b0 ""
-  "main.aux" 1744813089.79181 4258 eab5fe4ed132d566fe5c63940f8c348a "pdflatex"
-  "main.nav" 1744813089.79242 2644 f071b6e8b65f1689c713b35e180a1e29 "pdflatex"
-  "main.out" 1744813089.79202 916 39629face8e283cfed4c3dd42297c03a "pdflatex"
-  "main.tex" 1744813085.23762 9475 63995ba34eff8175639ec716b83d459f ""
+  "main.aux" 1744813176.72389 4258 eab5fe4ed132d566fe5c63940f8c348a "pdflatex"
+  "main.nav" 1744813176.72422 2644 f071b6e8b65f1689c713b35e180a1e29 "pdflatex"
+  "main.out" 1744813176.72422 916 39629face8e283cfed4c3dd42297c03a "pdflatex"
+  "main.tex" 1744813175.65274 9541 1191093e14c7cfc0e8dfbc572ec02d3d ""
   (generated)
   "main.aux"
   "main.log"
