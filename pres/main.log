@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.3.24)  16 APR 2025 17:01
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.3.24)  16 APR 2025 17:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1369,12 +1369,12 @@ Overfull \hbox (231.71863pt too wide) has occurred while \output is active
 [8
 
  <./img/ensemble/original.png> <./img/ensemble/residuals.png>]
-Overfull \hbox (427.25174pt too wide) in paragraph at lines 134--134
+Overfull \hbox (427.25174pt too wide) in paragraph at lines 133--133
  [][]  \T2A/cmss/m/n/6 ([])  
  []
 
 
-Overfull \hbox (231.71863pt too wide) in paragraph at lines 134--134
+Overfull \hbox (231.71863pt too wide) in paragraph at lines 133--133
  [][][][]  
  []
 
@@ -1393,12 +1393,12 @@ Overfull \hbox (231.71863pt too wide) has occurred while \output is active
 [9
 
 ]
-Overfull \hbox (427.25174pt too wide) in paragraph at lines 149--149
+Overfull \hbox (427.25174pt too wide) in paragraph at lines 148--148
  [][]  \T2A/cmss/m/n/6 ([])  
  []
 
 
-Overfull \hbox (231.71863pt too wide) in paragraph at lines 149--149
+Overfull \hbox (231.71863pt too wide) in paragraph at lines 148--148
  [][][][]  
  []
 
@@ -1417,12 +1417,12 @@ Overfull \hbox (231.71863pt too wide) has occurred while \output is active
 [10
 
 ]
-Overfull \hbox (427.25174pt too wide) in paragraph at lines 161--161
+Overfull \hbox (427.25174pt too wide) in paragraph at lines 160--160
  [][]  \T2A/cmss/m/n/6 ([])  
  []
 
 
-Overfull \hbox (231.71863pt too wide) in paragraph at lines 161--161
+Overfull \hbox (231.71863pt too wide) in paragraph at lines 160--160
  [][][][]  
  []
 
@@ -1441,24 +1441,24 @@ Overfull \hbox (231.71863pt too wide) has occurred while \output is active
 [11
 
 ]
-Overfull \hbox (427.25174pt too wide) in paragraph at lines 168--168
+Overfull \hbox (427.25174pt too wide) in paragraph at lines 167--167
  [][]  \T2A/cmss/m/n/6 ([])  
  []
 
 
-Overfull \hbox (231.71863pt too wide) in paragraph at lines 168--168
+Overfull \hbox (231.71863pt too wide) in paragraph at lines 167--167
  [][][][]  
  []
 
 <./img/results/basic_1.png, id=377, 425.6703pt x 312.2064pt>
 File: ./img/results/basic_1.png Graphic file (type png)
 <use ./img/results/basic_1.png>
-Package pdftex.def Info: ./img/results/basic_1.png  used on input line 168.
+Package pdftex.def Info: ./img/results/basic_1.png  used on input line 167.
 (pdftex.def)             Requested size: 154.09483pt x 113.02304pt.
 <./img/results/1.jpg, id=378, 443.40656pt x 325.215pt>
 File: ./img/results/1.jpg Graphic file (type jpg)
 <use ./img/results/1.jpg>
-Package pdftex.def Info: ./img/results/1.jpg  used on input line 168.
+Package pdftex.def Info: ./img/results/1.jpg  used on input line 167.
 (pdftex.def)             Requested size: 154.09483pt x 113.02304pt.
 
 
@@ -1475,24 +1475,24 @@ Overfull \hbox (231.71863pt too wide) has occurred while \output is active
 [12
 
  <./img/results/basic_1.png> <./img/results/1.jpg>]
-Overfull \hbox (427.25174pt too wide) in paragraph at lines 175--175
+Overfull \hbox (427.25174pt too wide) in paragraph at lines 174--174
  [][]  \T2A/cmss/m/n/6 ([])  
  []
 
 
-Overfull \hbox (231.71863pt too wide) in paragraph at lines 175--175
+Overfull \hbox (231.71863pt too wide) in paragraph at lines 174--174
  [][][][]  
  []
 
 <./img/results/basic_2.png, id=408, 425.6703pt x 312.2064pt>
 File: ./img/results/basic_2.png Graphic file (type png)
 <use ./img/results/basic_2.png>
-Package pdftex.def Info: ./img/results/basic_2.png  used on input line 175.
+Package pdftex.def Info: ./img/results/basic_2.png  used on input line 174.
 (pdftex.def)             Requested size: 154.09483pt x 113.02304pt.
 <./img/results/2.jpg, id=409, 443.40656pt x 325.215pt>
 File: ./img/results/2.jpg Graphic file (type jpg)
 <use ./img/results/2.jpg>
-Package pdftex.def Info: ./img/results/2.jpg  used on input line 175.
+Package pdftex.def Info: ./img/results/2.jpg  used on input line 174.
 (pdftex.def)             Requested size: 154.09483pt x 113.02304pt.
 
 
@@ -1509,24 +1509,24 @@ Overfull \hbox (231.71863pt too wide) has occurred while \output is active
 [13
 
  <./img/results/basic_2.png> <./img/results/2.jpg>]
-Overfull \hbox (427.25174pt too wide) in paragraph at lines 181--181
+Overfull \hbox (427.25174pt too wide) in paragraph at lines 180--180
  [][]  \T2A/cmss/m/n/6 ([])  
  []
 
 
-Overfull \hbox (231.71863pt too wide) in paragraph at lines 181--181
+Overfull \hbox (231.71863pt too wide) in paragraph at lines 180--180
  [][][][]  
  []
 
 <./img/results/basic_3.png, id=439, 425.6703pt x 312.2064pt>
 File: ./img/results/basic_3.png Graphic file (type png)
 <use ./img/results/basic_3.png>
-Package pdftex.def Info: ./img/results/basic_3.png  used on input line 181.
+Package pdftex.def Info: ./img/results/basic_3.png  used on input line 180.
 (pdftex.def)             Requested size: 154.09483pt x 113.02304pt.
 <./img/results/3.jpg, id=440, 443.40656pt x 325.215pt>
 File: ./img/results/3.jpg Graphic file (type jpg)
 <use ./img/results/3.jpg>
-Package pdftex.def Info: ./img/results/3.jpg  used on input line 181.
+Package pdftex.def Info: ./img/results/3.jpg  used on input line 180.
 (pdftex.def)             Requested size: 154.09483pt x 113.02304pt.
 
 
@@ -1543,24 +1543,24 @@ Overfull \hbox (231.71863pt too wide) has occurred while \output is active
 [14
 
  <./img/results/basic_3.png> <./img/results/3.jpg>]
-Overfull \hbox (427.25174pt too wide) in paragraph at lines 187--187
+Overfull \hbox (427.25174pt too wide) in paragraph at lines 186--186
  [][]  \T2A/cmss/m/n/6 ([])  
  []
 
 
-Overfull \hbox (231.71863pt too wide) in paragraph at lines 187--187
+Overfull \hbox (231.71863pt too wide) in paragraph at lines 186--186
  [][][][]  
  []
 
 <./img/results/basic_4.png, id=469, 425.6703pt x 312.2064pt>
 File: ./img/results/basic_4.png Graphic file (type png)
 <use ./img/results/basic_4.png>
-Package pdftex.def Info: ./img/results/basic_4.png  used on input line 187.
+Package pdftex.def Info: ./img/results/basic_4.png  used on input line 186.
 (pdftex.def)             Requested size: 154.09483pt x 113.02304pt.
 <./img/results/4.jpg, id=470, 443.40656pt x 325.215pt>
 File: ./img/results/4.jpg Graphic file (type jpg)
 <use ./img/results/4.jpg>
-Package pdftex.def Info: ./img/results/4.jpg  used on input line 187.
+Package pdftex.def Info: ./img/results/4.jpg  used on input line 186.
 (pdftex.def)             Requested size: 154.09483pt x 113.02304pt.
 
 
@@ -1577,24 +1577,24 @@ Overfull \hbox (231.71863pt too wide) has occurred while \output is active
 [15
 
  <./img/results/basic_4.png> <./img/results/4.jpg>]
-Overfull \hbox (427.25174pt too wide) in paragraph at lines 193--193
+Overfull \hbox (427.25174pt too wide) in paragraph at lines 192--192
  [][]  \T2A/cmss/m/n/6 ([])  
  []
 
 
-Overfull \hbox (231.71863pt too wide) in paragraph at lines 193--193
+Overfull \hbox (231.71863pt too wide) in paragraph at lines 192--192
  [][][][]  
  []
 
 <./img/results/basic_5.png, id=498, 425.6703pt x 312.2064pt>
 File: ./img/results/basic_5.png Graphic file (type png)
 <use ./img/results/basic_5.png>
-Package pdftex.def Info: ./img/results/basic_5.png  used on input line 193.
+Package pdftex.def Info: ./img/results/basic_5.png  used on input line 192.
 (pdftex.def)             Requested size: 154.09483pt x 113.02304pt.
 <./img/results/5.jpg, id=499, 443.40656pt x 325.215pt>
 File: ./img/results/5.jpg Graphic file (type jpg)
 <use ./img/results/5.jpg>
-Package pdftex.def Info: ./img/results/5.jpg  used on input line 193.
+Package pdftex.def Info: ./img/results/5.jpg  used on input line 192.
 (pdftex.def)             Requested size: 154.09483pt x 113.02304pt.
 
 
@@ -1611,12 +1611,12 @@ Overfull \hbox (231.71863pt too wide) has occurred while \output is active
 [16
 
  <./img/results/basic_5.png> <./img/results/5.jpg>]
-Overfull \hbox (427.25174pt too wide) in paragraph at lines 203--203
+Overfull \hbox (427.25174pt too wide) in paragraph at lines 202--202
  [][]  \T2A/cmss/m/n/6 ([])  
  []
 
 
-Overfull \hbox (231.71863pt too wide) in paragraph at lines 203--203
+Overfull \hbox (231.71863pt too wide) in paragraph at lines 202--202
  [][][][]  
  []
 
@@ -1655,7 +1655,7 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 Here is how much of TeX's memory you used:
  25328 strings out of 474645
  483466 string characters out of 5759193
- 848922 words of memory out of 5000000
+ 847922 words of memory out of 5000000
  47796 multiletter control sequences out of 15000+600000
  578641 words of font info for 84 fonts, out of 8000000 for 9000
  430 hyphenation exceptions out of 8191
@@ -1674,7 +1674,7 @@ exmf-dist/fonts/type1/public/cm-super/sfss0800.pfb></usr/share/texmf-dist/fonts
 /type1/public/cm-super/sfss1095.pfb></usr/share/texmf-dist/fonts/type1/public/c
 m-super/sfss1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfsx100
 0.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfsx1095.pfb>
-Output written on main.pdf (17 pages, 586643 bytes).
+Output written on main.pdf (17 pages, 592785 bytes).
 PDF statistics:
  638 PDF objects out of 1000 (max. 8388607)
  524 compressed objects within 6 object streams

@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1744812082.87054 "main.tex" "main.pdf" "main" 1744812083.69595 0
+["pdflatex"] 1744812551.59807 "main.tex" "main.pdf" "main" 1744812552.43482 0
   "/home/i3alumba/.texlive/texmf-var/fonts/tfm/lh/lh-t2a/lass0500.tfm" 1731417680.87534 3344 04cc4fceacac9c26311c189d8cf8dfa8 ""
   "/home/i3alumba/.texlive/texmf-var/fonts/tfm/lh/lh-t2a/lass0600.tfm" 1731417679.72535 3336 ffa077eca1169d40eee1410535cc0504 ""
   "/home/i3alumba/.texlive/texmf-var/fonts/tfm/lh/lh-t2a/lass0700.tfm" 1744554112.59952 3336 64102c03b7330d029f637164eea463f9 ""
@@ -229,8 +229,8 @@
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1742685315 42087 b0f9697c952c8f5a8eede4134282cb0d ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1742846011 5314015 121189813f76d7128640ad3b5c67a025 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1742845982 2792735 f41bfde81f0ad96c841887f67fa2c0de ""
-  "img/ensemble/original.png" 1744811896.5517 67937 e266d693e91bfe3906a730b8c2c28279 ""
-  "img/ensemble/residuals.png" 1744811908.41966 58846 1e155d47eea2151cde46be8a5178ed8b ""
+  "img/ensemble/original.png" 1744812490.862 70562 7aed2c7e7040b0475e3f48ac82465a28 ""
+  "img/ensemble/residuals.png" 1744812504.38591 60873 0e39270f733f6d8b0073d69ce27e83d7 ""
   "img/results/1.jpg" 1741391778.63603 16592 254e8a913219ae27cb69c3ac4cb2ae8c ""
   "img/results/2.jpg" 1741391778.63609 16180 d6269672fbbb10e4fd5bdcde2cf67c05 ""
   "img/results/3.jpg" 1741391778.63609 18616 bcb6632be1242dff5ee2e6b1ef96c4d5 ""
@@ -243,10 +243,10 @@
   "img/results/basic_5.png" 1741391778.63609 29619 e3226429727fdb70c2866ced85790833 ""
   "img/sample.png" 1741391778.63609 19960 e1759c7adf6c91998910179b2d9259d8 ""
   "img/sample_basic.png" 1744811277.50375 17078 2252b09fae765a0e84952a283ced54b0 ""
-  "main.aux" 1744812083.63566 4258 eab5fe4ed132d566fe5c63940f8c348a "pdflatex"
-  "main.nav" 1744812083.63624 2644 f071b6e8b65f1689c713b35e180a1e29 "pdflatex"
-  "main.out" 1744812083.63585 916 39629face8e283cfed4c3dd42297c03a "pdflatex"
-  "main.tex" 1744812082.75974 9547 fd0906c4c294c3d5647ebb991c2bf117 ""
+  "main.aux" 1744812552.37449 4258 eab5fe4ed132d566fe5c63940f8c348a "pdflatex"
+  "main.nav" 1744812552.37505 2644 f071b6e8b65f1689c713b35e180a1e29 "pdflatex"
+  "main.out" 1744812552.37467 916 39629face8e283cfed4c3dd42297c03a "pdflatex"
+  "main.tex" 1744812550.11888 9428 1cd79d9f5d7a31ae0b1f175be37363f0 ""
   (generated)
   "main.aux"
   "main.log"

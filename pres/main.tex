@@ -113,10 +113,9 @@
 		\item Новая модель (на примере $\textbf{PBFTPK}_1$):
 		      \[
 			      C(t) = \begin{cases}
-				      0,                                                             & 0 \leq t \le \tau_0      \\
-				      \frac{FD k_a}{V_d (k_a - k_{el})} (e^{-k_{el}t} - e^{-k_a t}), & \tau_0 < t \le \tau      \\
-				      C(\tau)e^{-k_{el}(t-\tau)},                                    & \tau < t \leq \tau_{max} \\
-				      0,                                                             & \tau_{max} < t
+				      0,                                                             & 0 \leq t \le \tau_0 \\
+				      \frac{FD k_a}{V_d (k_a - k_{el})} (e^{-k_{el}t} - e^{-k_a t}), & \tau_0 < t \le \tau \\
+				      C(\tau)e^{-k_{el}(t-\tau)},                                    & t > \tau
 			      \end{cases}
 		      \]
 		\item Методы определения \( \tau \) и \( \tau_0 \):
