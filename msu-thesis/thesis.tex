@@ -448,26 +448,25 @@ $\bm h:\mathbb R^{n}\!\to\!\mathbb R^{m_i}$ — неравенства.
 	\caption{Алгоритм оценки траектории}\label{ensemble_alg}
 	\begin{algorithmic}[1]
 		\Procedure{$M_i$}{$t, C, \lambda$}
+		\State $\Omega \gets \{ (F, D, V_d, k_a, k_{el}) | F \in [0; 1], D \ge 0, V_d \ge 0, k_a \ge 0, k_{el} \ge 0, k_a \ge k_{el}\}$
 		\State $\tau \gets \max \Argmax_{t_i \in t} C(t_i)$
 		\State $\tau_0 \gets \max \Argmin_{t_i \in t, t_i < \tau} C(t_i)ref$
 		\State Строится первичная оценка оценка $\hat{C}_0$
-		\State $\textbf{WMSE}_{\lambda} (C, \hat{C}) \to inf$ с помощью алгоритма последовательного квадратичного программирования (\textbf{SLSQP})
+		\State $\textbf{WMSE}_{\lambda} (C, \hat{C}) \to \inf_{\Omega}$ (\textbf{SLSQP})
 		\State \Return $\hat{C}$
 		\EndProcedure
 
 		\State \textbf{Вход:} размер ансамбля $N$, коэффициент веса в функции потерь $\lambda$, множество точек $t$ и множество значений $C$
 		\State Инициализируется массив моделей $M_i$
 		\State $r \gets C$
-		\State $i \gets 1$
 		\State $\hat{C} \gets 0$
-		\For {$i \le N$}
+		\For {$i =1, 2, \dots N$}
 		\State $\hat{r} \gets M_i (t, r, \lambda)$
 		\State $r \gets r - \hat{r}$
 		\State Производится оценка эффективности ансамбля
 		\If {Эффективность ниже заданного порога}
 		\State Выход из цикла
 		\EndIf
-		\State $i \gets i + 1$
 		\State $\hat{C} \gets \hat{C} + \hat{r}$
 		\EndFor
 	\end{algorithmic}
