@@ -1,0 +1,184 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[russian]{babel}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{geometry}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{graphicx, changepage}
+\usepackage{pdflscape}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage[font=small,labelfont=bf]{caption}
+
+\geometry{a4paper, margin=2.5cm}
+
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\Argmax}{Arg\,max}
+\DeclareMathOperator*{\Argmin}{Arg\,min}
+
+\author{Лазар В. И.}
+\title{Применение СДУ в задачах оценки свойств лекарственных средств}
+
+
+\begin{document}
+\maketitle
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\section{Уравнение}
+
+
+\[
+	\begin{cases}
+		dC_t = \frac{D F}{V_d} dt + (k_a - k_{el}) C_t dt + (k_a - k_{el}) \sigma dW_t, \; t \le \tau \\
+		dC_t = - k_{el} C_t dt - k_{el} \sigma dW_t, \; t > \tau                                      \\
+		C_0 \stackrel{\normalfont \tiny \mbox{п. н.}}{=} 0                                            \\
+	\end{cases}
+\]
+
+где $W_t$ - стандартный винеровский процесс
+
+\section{Разбиение задачи}
+
+Разобьём данное СДУ на две последовательные задачи:
+
+\begin{itemize}
+	\item Фаза абсорбции:
+	      \[
+		      \begin{cases}
+			      dC_t^a = \frac{DF}{V_d} dt + (k_a - k_{el}) C_t^a dt + (k_a - k_{el}) \sigma dW_t \\
+			      C_0^a \stackrel{\normalfont \tiny \mbox{п. н.}}{=} 0                              \\
+		      \end{cases}
+	      \]
+
+	\item Фаза элиминации:
+	      \[
+		      \begin{cases}
+			      dC_t^{el} = - k_{el} C_t^{el} dt - k_{el} \sigma dW_{t}                \\
+			      C_{\tau}^{el} \stackrel{\normalfont \tiny \mbox{п. н.}}{=}  C_{\tau}^a \\
+		      \end{cases}
+	      \]
+\end{itemize}
+
+\section{Решение}
+
+\subsection{Фаза абсорбции}
+
+Сделаем следующие замены:
+
+\[
+	\begin{cases}
+		C_t^a = X_t        \\
+		\frac{DF}{V_d} = A \\
+		k_a - k_{el} = B   \\
+		\sigma (k_a - k_{el}) = C
+	\end{cases}
+\]
+
+Тогда уравнение примет следующий вид:
+
+\[
+	\begin{cases}
+		dX_t = A dt + B X_t dt + C dW_t                    \\
+		X_0 \stackrel{\normalfont \tiny \mbox{п. н.}}{=} 0 \\
+	\end{cases}
+\]
+
+Взяв в качестве интегрирующего множителя $M_t = e^{-Bt}$ получим следующее СДУ:
+
+\[
+	d(e^{-Bt}X_t) = Ae^{-Bt}dt + Ce^{-Bt}dW_t
+\]
+
+Тогда
+
+\[
+	e^{-Bt} X_t - X_0 = A \int_0^t e^{-Bs} ds + C \int_0^t e^{-Bs} dW_s
+\]
+
+Поскольку $X_0 \stackrel{\normalfont \tiny \mbox{п. н.}}{=} 0$,
+
+\[
+	X_t = \frac{A}{B}(e^{Bt} - 1) + C \int_0^t e^{B(t-s)}dW_t
+\]
+
+Пусть $I_t = \int_0^t e^{B(t-s)}dW_t$, тогда
+
+\[
+	\mathbb{E}I_t = 0, \; \; \;
+	\mathbb{D}I_t = \int_0^t e^{2B(t-s)}ds = \frac{C^2}{2B} (e^{2Bt} - 1) = D(t), \; \; \;
+	I_t \sim \mathcal{N}(0, D(t))
+\]
+
+Итого:
+
+\[
+	X_t \sim \mathcal{N} (\frac{A}{B}(e^{Bt} - 1), \frac{C^2}{2B} (e^{2Bt} - 1))
+\]
+
+Сделав обратную замену, получаем выражение для $C_t^a$:
+
+\[
+	C_t^a \sim \mathcal{N} (\frac{DF}{V_d (k_a - k_{el})}(e^{(k_a - k_{el}) t} - 1), \frac{\sigma^2 (k_a - k_{el})}{2} (e^{2(k_a - k_{el})t} - 1))
+\]
+
+\subsection{Фаза элиминации}
+
+Сделаем аналогичные замены:
+
+\[
+	\begin{cases}
+		C_t^{el} = X_t     \\
+		-k_{el} = A        \\
+		-k_{el} \sigma = B \\
+		C_{\tau}^a = x_{\tau}
+	\end{cases}
+\]
+
+Получим следующее уравнение:
+
+\[
+	\begin{cases}
+		dX_t = A X_t dt + B dW_t \\
+		X_{\tau} = x_{\tau}
+	\end{cases}
+\]
+
+Применив метод интегрирующего множителя ($M_t = e^{-At}$) и используя аналогичные рассуждения при решении получаем следующее выражение для $X_t$:
+
+\[
+	X_t = e^{A(t - \tau)} x_{\tau} + B \int_{\tau}^{t} e^{A(t - s)} dW_s
+\]
+
+Аналогично получаем для $X_t$:
+
+\[
+	X_t \sim \mathcal{N}(e^{A(t - \tau)} x_{\tau} , \frac{B^2}{2A}(e^{2A(t - \tau)} - 1))
+\]
+
+Совершаем обратную замену:
+
+\[
+	C_t^{el} \sim \mathcal{N}(e^{-k_{el}(t - \tau)} C_{\tau}^a , \frac{\sigma^2 k_{el}}{2}(1 - e^{-2k_{el}(t - \tau)})
+\]
+
+\section{Общие выводы}
+
+В качестве решения получаем гауссовский процесс $C_t$ со следующими свойствами:
+
+\[
+	\begin{cases}
+		C_t = C_t^a,    & t \le \tau \\
+		C_t = C_t^{el}, & t > \tau
+	\end{cases}
+\]
+
+\end{document}
