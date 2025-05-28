@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.3.24)  26 MAY 2025 20:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.3.24)  28 MAY 2025 19:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -943,6 +943,10 @@ Package caption Info: Hyperref support is turned off
 (/usr/share/texmf-dist/tex/latex/beamer/beamercolorthemeorchid.sty)
 (/usr/share/texmf-dist/tex/latex/beamer/beamerinnerthemerounded.sty)
 (/usr/share/texmf-dist/tex/latex/beamer/beamerouterthemeinfolines.sty))
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\newline' on input line 21.
+
 (/usr/share/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count349
@@ -1125,7 +1129,7 @@ LaTeX Info: Redefining \th on input line 24.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
  (./main.nav)
-Overfull \hbox (427.25174pt too wide) in paragraph at lines 24--24
+Overfull \hbox (580.5829pt too wide) in paragraph at lines 24--24
  [][]  \T2A/cmss/m/n/6 ([])  
  []
 
@@ -1135,7 +1139,7 @@ Overfull \hbox (231.71863pt too wide) in paragraph at lines 24--24
  []
 
 
-Overfull \hbox (427.25174pt too wide) in paragraph at lines 28--28
+Overfull \hbox (580.5829pt too wide) in paragraph at lines 28--28
  [][]  \T2A/cmss/m/n/6 ([])  
  []
 
@@ -1147,7 +1151,7 @@ Overfull \hbox (231.71863pt too wide) in paragraph at lines 28--28
 
 
 
-Overfull \hbox (428.03444pt too wide) has occurred while \output is active
+Overfull \hbox (583.7137pt too wide) has occurred while \output is active
  [][]  \T2A/cmss/m/n/6 ([])  
  []
 
@@ -1160,7 +1164,7 @@ Overfull \hbox (231.71863pt too wide) has occurred while \output is active
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf-dist/fonts
 /enc/dvips/cm-super/cm-super-t2a.enc}]
-Overfull \hbox (427.25174pt too wide) in paragraph at lines 40--40
+Overfull \hbox (580.5829pt too wide) in paragraph at lines 40--40
  [][]  \T2A/cmss/m/n/6 ([])  
  []
 
@@ -1172,7 +1176,7 @@ Overfull \hbox (231.71863pt too wide) in paragraph at lines 40--40
 
 
 
-Overfull \hbox (428.03444pt too wide) has occurred while \output is active
+Overfull \hbox (583.7137pt too wide) has occurred while \output is active
  [][]  \T2A/cmss/m/n/6 ([])  
  []
 
@@ -1184,7 +1188,7 @@ Overfull \hbox (231.71863pt too wide) has occurred while \output is active
 [2
 
 ]
-Overfull \hbox (427.25174pt too wide) in paragraph at lines 44--44
+Overfull \hbox (580.5829pt too wide) in paragraph at lines 44--44
  [][]  \T2A/cmss/m/n/6 ([])  
  []
 
@@ -1196,7 +1200,7 @@ Overfull \hbox (231.71863pt too wide) in paragraph at lines 44--44
 
 
 
-Overfull \hbox (428.03444pt too wide) has occurred while \output is active
+Overfull \hbox (583.7137pt too wide) has occurred while \output is active
  [][]  \T2A/cmss/m/n/6 ([])  
  []
 
@@ -1208,7 +1212,7 @@ Overfull \hbox (231.71863pt too wide) has occurred while \output is active
 [3
 
 ]
-Overfull \hbox (427.25174pt too wide) in paragraph at lines 71--71
+Overfull \hbox (580.5829pt too wide) in paragraph at lines 71--71
  [][]  \T2A/cmss/m/n/6 ([])  
  []
 
@@ -1237,7 +1241,7 @@ thkerncmss.
 )
 
 
-Overfull \hbox (428.03444pt too wide) has occurred while \output is active
+Overfull \hbox (583.7137pt too wide) has occurred while \output is active
  [][]  \T2A/cmss/m/n/6 ([])  
  []
 
@@ -1249,7 +1253,7 @@ Overfull \hbox (231.71863pt too wide) has occurred while \output is active
 [4
 
 ]
-Overfull \hbox (427.25174pt too wide) in paragraph at lines 77--77
+Overfull \hbox (580.5829pt too wide) in paragraph at lines 77--77
  [][]  \T2A/cmss/m/n/6 ([])  
  []
 
@@ -1266,7 +1270,7 @@ Package pdftex.def Info: ./img/sample_basic.png  used on input line 77.
 
 
 
-Overfull \hbox (428.03444pt too wide) has occurred while \output is active
+Overfull \hbox (583.7137pt too wide) has occurred while \output is active
  [][]  \T2A/cmss/m/n/6 ([])  
  []
 
@@ -1278,7 +1282,7 @@ Overfull \hbox (231.71863pt too wide) has occurred while \output is active
 [5
 
  <./img/sample_basic.png>]
-Overfull \hbox (427.25174pt too wide) in paragraph at lines 88--88
+Overfull \hbox (580.5829pt too wide) in paragraph at lines 88--88
  [][]  \T2A/cmss/m/n/6 ([])  
  []
 
@@ -1299,7 +1303,7 @@ Overfull \vbox (2.23459pt too high) detected at line 88
 
 
 
-Overfull \hbox (428.03444pt too wide) has occurred while \output is active
+Overfull \hbox (583.7137pt too wide) has occurred while \output is active
  [][]  \T2A/cmss/m/n/6 ([])  
  []
 
@@ -1311,7 +1315,7 @@ Overfull \hbox (231.71863pt too wide) has occurred while \output is active
 [6
 
  <./img/sample.png>]
-Overfull \hbox (427.25174pt too wide) in paragraph at lines 102--102
+Overfull \hbox (580.5829pt too wide) in paragraph at lines 102--102
  [][]  \T2A/cmss/m/n/6 ([])  
  []
 
@@ -1323,7 +1327,7 @@ Overfull \hbox (231.71863pt too wide) in paragraph at lines 102--102
 
 
 
-Overfull \hbox (428.03444pt too wide) has occurred while \output is active
+Overfull \hbox (583.7137pt too wide) has occurred while \output is active
  [][]  \T2A/cmss/m/n/6 ([])  
  []
 
@@ -1335,7 +1339,7 @@ Overfull \hbox (231.71863pt too wide) has occurred while \output is active
 [7
 
 ]
-Overfull \hbox (427.25174pt too wide) in paragraph at lines 108--108
+Overfull \hbox (580.5829pt too wide) in paragraph at lines 108--108
  [][]  \T2A/cmss/m/n/6 ([])  
  []
 
@@ -1357,7 +1361,7 @@ Package pdftex.def Info: ./img/ensemble/residuals.png  used on input line 108.
 
 
 
-Overfull \hbox (428.03444pt too wide) has occurred while \output is active
+Overfull \hbox (583.7137pt too wide) has occurred while \output is active
  [][]  \T2A/cmss/m/n/6 ([])  
  []
 
@@ -1369,7 +1373,7 @@ Overfull \hbox (231.71863pt too wide) has occurred while \output is active
 [8
 
  <./img/ensemble/original.png> <./img/ensemble/residuals.png>]
-Overfull \hbox (427.25174pt too wide) in paragraph at lines 133--133
+Overfull \hbox (580.5829pt too wide) in paragraph at lines 133--133
  [][]  \T2A/cmss/m/n/6 ([])  
  []
 
@@ -1381,7 +1385,7 @@ Overfull \hbox (231.71863pt too wide) in paragraph at lines 133--133
 
 
 
-Overfull \hbox (428.03444pt too wide) has occurred while \output is active
+Overfull \hbox (583.7137pt too wide) has occurred while \output is active
  [][]  \T2A/cmss/m/n/6 ([])  
  []
 
@@ -1393,7 +1397,7 @@ Overfull \hbox (231.71863pt too wide) has occurred while \output is active
 [9
 
 ]
-Overfull \hbox (427.25174pt too wide) in paragraph at lines 148--148
+Overfull \hbox (580.5829pt too wide) in paragraph at lines 148--148
  [][]  \T2A/cmss/m/n/6 ([])  
  []
 
@@ -1405,7 +1409,7 @@ Overfull \hbox (231.71863pt too wide) in paragraph at lines 148--148
 
 
 
-Overfull \hbox (428.03444pt too wide) has occurred while \output is active
+Overfull \hbox (583.7137pt too wide) has occurred while \output is active
  [][]  \T2A/cmss/m/n/6 ([])  
  []
 
@@ -1417,7 +1421,7 @@ Overfull \hbox (231.71863pt too wide) has occurred while \output is active
 [10
 
 ]
-Overfull \hbox (427.25174pt too wide) in paragraph at lines 160--160
+Overfull \hbox (580.5829pt too wide) in paragraph at lines 160--160
  [][]  \T2A/cmss/m/n/6 ([])  
  []
 
@@ -1429,7 +1433,7 @@ Overfull \hbox (231.71863pt too wide) in paragraph at lines 160--160
 
 
 
-Overfull \hbox (428.03444pt too wide) has occurred while \output is active
+Overfull \hbox (583.7137pt too wide) has occurred while \output is active
  [][]  \T2A/cmss/m/n/6 ([])  
  []
 
@@ -1441,7 +1445,7 @@ Overfull \hbox (231.71863pt too wide) has occurred while \output is active
 [11
 
 ]
-Overfull \hbox (427.25174pt too wide) in paragraph at lines 169--169
+Overfull \hbox (580.5829pt too wide) in paragraph at lines 169--169
  [][]  \T2A/cmss/m/n/6 ([])  
  []
 
@@ -1477,7 +1481,7 @@ Overfull \vbox (6.28215pt too high) detected at line 169
 
 
 
-Overfull \hbox (428.03444pt too wide) has occurred while \output is active
+Overfull \hbox (583.7137pt too wide) has occurred while \output is active
  [][]  \T2A/cmss/m/n/6 ([])  
  []
 
@@ -1490,7 +1494,7 @@ Overfull \hbox (231.71863pt too wide) has occurred while \output is active
 
  <./img/results/basic_1.png> <./img/results/1.jpg> <./img/results/basic_2.png> 
 <./img/results/2.jpg>]
-Overfull \hbox (427.25174pt too wide) in paragraph at lines 178--178
+Overfull \hbox (580.5829pt too wide) in paragraph at lines 178--178
  [][]  \T2A/cmss/m/n/6 ([])  
  []
 
@@ -1526,7 +1530,7 @@ Overfull \vbox (6.28215pt too high) detected at line 178
 
 
 
-Overfull \hbox (428.03444pt too wide) has occurred while \output is active
+Overfull \hbox (583.7137pt too wide) has occurred while \output is active
  [][]  \T2A/cmss/m/n/6 ([])  
  []
 
@@ -1539,7 +1543,7 @@ Overfull \hbox (231.71863pt too wide) has occurred while \output is active
 
  <./img/results/basic_3.png> <./img/results/3.jpg> <./img/results/basic_5.png> 
 <./img/results/5.jpg>]
-Overfull \hbox (427.25174pt too wide) in paragraph at lines 188--188
+Overfull \hbox (580.5829pt too wide) in paragraph at lines 188--188
  [][]  \T2A/cmss/m/n/6 ([])  
  []
 
@@ -1551,7 +1555,7 @@ Overfull \hbox (231.71863pt too wide) in paragraph at lines 188--188
 
 
 
-Overfull \hbox (428.03444pt too wide) has occurred while \output is active
+Overfull \hbox (583.7137pt too wide) has occurred while \output is active
  [][]  \T2A/cmss/m/n/6 ([])  
  []
 
@@ -1581,10 +1585,10 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 39629FACE8E283CFED4C3DD42297C03A;916.
  ) 
 Here is how much of TeX's memory you used:
- 25298 strings out of 474645
- 482869 string characters out of 5759193
- 847922 words of memory out of 5000000
- 47772 multiletter control sequences out of 15000+600000
+ 25299 strings out of 474645
+ 482880 string characters out of 5759193
+ 848531 words of memory out of 5000000
+ 47773 multiletter control sequences out of 15000+600000
  578641 words of font info for 84 fonts, out of 8000000 for 9000
  430 hyphenation exceptions out of 8191
  128i,15n,123p,549b,589s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1602,7 +1606,7 @@ exmf-dist/fonts/type1/public/cm-super/sfss0800.pfb></usr/share/texmf-dist/fonts
 /type1/public/cm-super/sfss1095.pfb></usr/share/texmf-dist/fonts/type1/public/c
 m-super/sfss1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfsx100
 0.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfsx1095.pfb>
-Output written on main.pdf (14 pages, 543280 bytes).
+Output written on main.pdf (14 pages, 544980 bytes).
 PDF statistics:
  550 PDF objects out of 1000 (max. 8388607)
  446 compressed objects within 5 object streams
